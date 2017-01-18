@@ -24,7 +24,7 @@ Constructs the MPS with bond dimension D equals to the size of min(A_{1},B_{1}).
     * Output: 
       * mps: a cell of of mps tensors
 
-The bond dimension D of rbm2mps2.m is smaller than that of rbm2mps.m, but it is not the smallest. In rbm2mps2.m, the space of the internal bond is only visible units. Actully we are not limited to this case, we can set the internal bond the copies of visible or hidden units. We will add the version latter. 
+The bond dimension D of rbm2mps2.m is smaller than that of rbm2mps.m.
 
 ## Auxillary tensor programs ##
 * MPS\_Canonicalize.m
