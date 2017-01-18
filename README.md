@@ -1,49 +1,39 @@
 # Transforming an RBM into an MPS
 
-These are demonstration codes for the Sec.II of [arXiv.17799849 ](https://arxiv.org/submit/1779849). You are free to use them. Please kindly cite the paper 
-- Jing Chen, Song Cheng, Haidong Xie, Lei Wang, and Tao Xiang, "On the Equivalence of Restricted Boltzmann Machines and Tensor Network States", [arXiv.17799849 ](https://arxiv.org/submit/1779849)
+Demonstration codes of the paper [arXiv.17799849 ](https://arxiv.org/submit/1779849) written in Matlab. You are free to use these codes. Please kindly cite the paper 
+- Jing Chen, Song Cheng, Haidong Xie, Lei Wang, and Tao Xiang, *On the Equivalence of Restricted Boltzmann Machines and Tensor Network States*, [arXiv.17799849 ](https://arxiv.org/submit/1779849)
 
+We implement two approaches
 
-We offer two versions of the code. Both are written in MATLAB. 
-* rbm2mps.m
-Constructs the MPS with the bond dimension D equals the number of cut connections at the bipartition. See Fig.2.
+* rbm2mps.m: The algorithm of Fig. 2. The MPS bond dimension is determined by the number of cut RBM connections. 
     * Input:	
         * W:   n_v by n_h weight matrix W
     	* a:   bias vector of n_v for visible units
-	    * b:   bias vector of n_h for hidden units
-	    * bpos: the vector telling which piece the hidden units belongs to. See Fig.2 
+        * b:   bias vector of n_h for hidden units
+	* bpos: the vector telling which piece the hidden units belongs to. See Fig.2 
     * Output: 
-        * mps: a cell of of mps tensors
+        * mps: a cell of of MPS tensors
 
-* rbm2mps2.m
-Constructs the MPS with bond dimension D equals to the size of min(A_{1},B_{1}). The internal bond are just copies of the physical bonds. See Fig.4. 
+* rbm2mps2.m: The algorithm of Fig. 4. The MPS bond dimension is determined by min(|A_{1}|, |B_{1}|). 
     * Input:      
       * W:  n\_v by n\_h weight matrix W
       * a:  bias vector of n_v for visible units
       * b:  bias vector of n_h for hidden units
     * Output: 
-      * mps: a cell of of mps tensors
+      * mps: a cell of of MPS tensors
 
-The bond dimension D of rbm2mps2.m is smaller than that of rbm2mps.m.
+The MPS bond dimensions of rbm2mps2.m will be smaller or equal to that of rbm2mps.m.
 
 ## Auxillary tensor programs ##
-* MPS\_Canonicalize.m
-Canonicalize a finite MPS and give us the entanglement spectrum in each MPS bond 
+* MPS\_Canonicalize.m: Canonicalize a finite MPS and return the entanglement spectrum of each bond
 
-* tensor\_product.m 
-Calculate the contraction of two tensors and permute the index with the given order.
-For example 
-C(a,c,m) = sum_{c}A_{a,b,m)X_{c,b}
-MATLAB code:
-`C = tensor_product('acm',A,'abm',X,'cb');`
+* tensor\_product.m: Contract two tensors and permute the indices to the given order. 
+`C = tensor_product('acm',A,'abm',X,'cb')`  does C(a,c,m) = sum_{c}A_{a,b,m)X_{c,b}
 
-* tensor\_reshape.m
-For example a 4 index tensor A can be transformed into a matrix by "permute" and "reshape" 
-B( ac,bd ) =  A(a,b,c,d);
-MATLAB code:
-`B = tensor\_reshape( A,'abcd','ac','bd')`
+* tensor\_reshape.m: 
+ `B = tensor\_reshape( A,'abcd','ac','bd')` transform the tensor A into a matrix B( ac,bd ) =  A(a,b,c,d)
+
 
 
 ## Test program ##
-* Example.m
-Taking the RBM structure in Fig.1(a) as an example, we construct the MPS using two different approaches (Fig.2 and Fig.4 of Sec.II). The bond dimensions are shown to be consistent with Fig.2(c) and Fig.4(c). The two MPS are identical in their canonical form, which also demostrates simplification of an RBM as discussed in Sec.V.  
+* Test.m: Using the RBM architecure in Fig.1(a) as an example, we construct the MPS with two approaches. The bond dimensions are consistent with Fig.2(c) and Fig.4(c). The two MPS are identical in their canonical form, which also demostrates simplification of an RBM using tensor techniques (Sec.V). 
