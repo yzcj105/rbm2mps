@@ -46,4 +46,4 @@ MATLAB code:
 
 ## Test program ##
 * Example.m
-Take the RBM in Fig.1(a) as an example and construct MPS by two different ways as Fig.2 and Fig.4 in Sec.II . The bond diemensions are shown, consistant with Fig.2(c) and Fig.4(c). The MPS are exactly the same in their canonical form. It helps to simplify an RBM as in Sec.V, Fig.8. 
+Taking the RBM structure in Fig.1(a) as an example, we construct the MPS using two different approaches (Fig.2 and Fig.4 of Sec.II). The bond dimensions are shown to be consistent with Fig.2(c) and Fig.4(c). The two MPS are identical in their canonical form, which also demostrates simplification of an RBM as discussed in Sec.V.  
