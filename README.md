@@ -34,5 +34,5 @@ The MPS bond dimensions of rbm2mps2.m will be smaller or equal to that of rbm2mp
  `B = tensor\_reshape( A,'abcd','ac','bd')` transforms a tensor A into a matrix B( ac,bd ) =  A(a,b,c,d).
 
 
-## Test program ##
-* Test.m: Using the RBM architecure in Fig.1(a) as an example, we construct the MPS with two approaches. The bond dimensions are consistent with Fig. 2(c) and Fig. 4(c). The two MPS are identical in their canonical form, which also demostrates simplifying RBM using tensor techniques discussed in Sec.V of the paper. 
+## Example ##
+* Example.m: Using the RBM architecure in Fig.1(a) as an example, we construct the MPS with two approaches. The bond dimensions are consistent with Fig. 2(c) and Fig. 4(c). The two MPS are identical in their canonical form, which also demostrates simplifying RBM using tensor techniques discussed in Sec.V of the paper. 
