@@ -5,7 +5,7 @@ FUNCTION RBM2MPS v1.0 18/JAU/2017
 Article
 Jing Chen, Song Cheng, Haidong Xie, Lei Wang, and Tao Xiang
 On the Equivalence of Restricted Boltzmann Machines and Tensor Network States
-[arXiv.17799849 ](https://arxiv.org/submit/1779849)
+[arXiv:1701.04831](http://arxiv.org/abs/1701.04831)
 
 A Matlab code for rbm2mps on GitHub
 https://github.com/yzcj105/rbm2mps
@@ -50,7 +50,7 @@ pieces = cell(nv,1);
 % N record how many hiddens each visible connected with
 N = ones(nv,1);
 maxInd = 1;
-% define indexes of Lambda_v and Lambda_h
+% define indices of Lambda_v and Lambda_h
 L_v_ind = zeros(nv,nh);
 L_h_ind = L_v_ind;
 for k = 1:nv*nh
