@@ -5,7 +5,7 @@ FUNCTION TENSOR_RESHAPE v1.0 18/JAU/2017
 Article
 Jing Chen, Song Cheng, Haidong Xie, Lei Wang, and Tao Xiang
 On the Equivalence of Restricted Boltzmann Machines and Tensor Network States
-[arXiv.17799849 ](https://arxiv.org/submit/1779849)
+[arXiv:1701.04831](http://arxiv.org/abs/1701.04831)
 A Matlab code for rbm2mps on GitHub
 https://github.com/yzcj105/rbm2mps
 
@@ -15,7 +15,7 @@ Authors
   Haidong Xie
   The Institute of Physics, Chinese Academy of Sciences
 
-A Matlab code for permute and reshape of tensors. 
+A Matlab code to permute and reshape tensors. 
 For example a 4 index tensor A can be transformed into a matrix by ¡°permute¡± and ¡°reshape¡± 
 B( ac,bd ) = A(a,b,c,d); 
 MATLAB code: 

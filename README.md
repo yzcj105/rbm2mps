@@ -1,49 +1,38 @@
-# Transforming an RBM into an MPS
+# RBM to MPS Translation
 
-These are demonstration codes for the Sec.II of [arXiv.17799849 ](https://arxiv.org/submit/1779849). You are free to use them. Please kindly cite the paper 
-- Jing Chen, Song Cheng, Haidong Xie, Lei Wang, and Tao Xiang, "On the Equivalence of Restricted Boltzmann Machines and Tensor Network States", [arXiv.17799849 ](https://arxiv.org/submit/1779849)
+Demo code for [arXiv:1701.04831](http://arxiv.org/abs/1701.04831). You are free to use these codes. Please kindly cite the paper 
+- Jing Chen, Song Cheng, Haidong Xie, Lei Wang, and Tao Xiang, *On the Equivalence of Restricted Boltzmann Machines and Tensor Network States*, [arXiv:1701.04831](http://arxiv.org/abs/1701.04831)
 
+We implement two approaches using Matlab 
 
-We offer two versions of the code. Both are written in MATLAB. 
-* rbm2mps.m
-Constructs the MPS with the bond dimension D equals the number of cut connections at the bipartition. See Fig.2.
+* rbm2mps.m: The algorithm of Fig. 2. The MPS bond dimension is $2^n$, where $n$ is the number of cut RBM connections. 
     * Input:	
-        * W:   n_v by n_h weight matrix W
-    	* a:   bias vector of n_v for visible units
-	    * b:   bias vector of n_h for hidden units
-	    * bpos: the vector telling which piece the hidden units belongs to. See Fig.2 
+        * W:   $n_v$ by $n_h$ weight matrix $W$
+    	* a:   vector of size $n_v$ for visible units bias 
+        * b:   vector of size $n_h$ for hidden units bias
+   	    * bpos: the vector telling which piece the hidden units belongs to. See Fig. 2.
     * Output: 
-        * mps: a cell of of mps tensors
+        * mps: a cell of MPS tensors
 
-* rbm2mps2.m
-Constructs the MPS with bond dimension D equals to the size of min(A_{1},B_{1}). The internal bond are just copies of the physical bonds. See Fig.4. 
+* rbm2mps2.m: The algorithm of Fig. 4. The MPS bond dimension is $2^m$, where $m=\min(|A_{1}|, |B_{1}|)$ is the size of the interface region. The algorithm copies the physical degree of freedoms in the interface region to the virtual bond.  
     * Input:      
-      * W:  n\_v by n\_h weight matrix W
-      * a:  bias vector of n_v for visible units
-      * b:  bias vector of n_h for hidden units
+      * W:  $n_v$ by $n_h$ weight matrix $W$
+      * a:  vector of size $n_v$ for visible units bias 
+      * b:  vector of size $n_h$ for hidden units bias 
     * Output: 
-      * mps: a cell of of mps tensors
+      * mps: a cell of MPS tensors
 
-The bond dimension D of rbm2mps2.m is smaller than that of rbm2mps.m.
+The MPS bond dimensions of rbm2mps2.m will be smaller or equal to that of rbm2mps.m.
 
 ## Auxillary tensor programs ##
-* MPS\_Canonicalize.m
-Canonicalize a finite MPS and give us the entanglement spectrum in each MPS bond 
+* MPS\_Canonicalize.m: Canonicalize a finite MPS and return the entanglement spectrum of each bond.
 
-* tensor\_product.m 
-Calculate the contraction of two tensors and permute the index with the given order.
-For example 
-C(a,c,m) = sum_{c}A_{a,b,m)X_{c,b}
-MATLAB code:
-`C = tensor_product('acm',A,'abm',X,'cb');`
+* tensor\_product.m: Contract two tensors and permute the indices according to the given order. 
+`C = tensor_product('acm',A,'abm',X,'cb')` does $C(a,c,m) = \sum_{c}A_{a,b,m)X_{c,b}$
 
-* tensor\_reshape.m
-For example a 4 index tensor A can be transformed into a matrix by "permute" and "reshape" 
-B( ac,bd ) =  A(a,b,c,d);
-MATLAB code:
-`B = tensor\_reshape( A,'abcd','ac','bd')`
+* tensor\_reshape.m: 
+ `B = tensor_reshape( A,'abcd','ac','bd')` reshapes a tensor into a matrix $B( ac,bd ) =  A(a,b,c,d)$.
 
 
-## Test program ##
-* Example.m
-Take the RBM in Fig.1(a) as an example and construct MPS by two different ways as Fig.2 and Fig.4 in Sec.II . The bond diemensions are shown, consistant with Fig.2(c) and Fig.4(c). The MPS are exactly the same in their canonical form. It helps to simplify an RBM as in Sec.V, Fig.8. 
+## Example ##
+* Example.m: Using the RBM architecure in Fig. 1(a) as an example, we construct the MPS with two approaches. The bond dimensions are consistent with Fig. 2(c) and Fig. 4(c). The two MPS are identical in their canonical form. 

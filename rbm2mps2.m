@@ -5,7 +5,7 @@ FUNCTION RBM2MPS2 v1.0 18/JAU/2017
 Article
 Jing Chen, Song Cheng, Haidong Xie, Lei Wang, and Tao Xiang
 On the Equivalence of Restricted Boltzmann Machines and Tensor Network States
-[arXiv.17799849 ](https://arxiv.org/submit/1779849)
+[arXiv:1701.04831](http://arxiv.org/abs/1701.04831)
 
 A Matlab code for rbm2mps on GitHub
 https://github.com/yzcj105/rbm2mps

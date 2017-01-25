@@ -3,7 +3,7 @@ function [C cindex] = tensor_product(varargin)
 FUNCTION TENSOR_PRODUCT v1.0 18/JAU/2017
 
 Article
-https://arxiv.org/submit/1779849
+[arXiv:1701.04831](http://arxiv.org/abs/1701.04831)
 
 A Matlab code for rbm2mps on GitHub
 https://github.com/yzcj105/rbm2mps
@@ -14,7 +14,7 @@ Authors
   Haidong Xie
   The Institute of Physics, Chinese Academy of Sciences
 
-A Matlab code for the contraction of two tensors and permute the index with the given order. 
+A Matlab code for the contraction of two tensors and permute the index of the given order. 
 For example 
 C(a,c,m) = sum_{c}A_{a,b,m)X_{c,b} 
 MATLAB code: 
