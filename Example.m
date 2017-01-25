@@ -69,7 +69,7 @@ disp(D2);
 
 mps_m3 = rbm2mps3(W,b,a);
 D3 = MPS_D(mps_m3);
-fprintf('The bond dimensions of MPS in Fig.x are\n');
+fprintf('The bond dimensions of MPS by rbm2mps3 are\n');
 disp(D3);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Canonical mps1 and mps2 and compare them.
