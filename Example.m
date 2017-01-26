@@ -66,6 +66,11 @@ mps2 = rbm2mps2(W,b,a);
 D2 = MPS_D(mps2);
 fprintf('The bond dimensions of MPS in Fig.4 are\n');
 disp(D2);
+
+mps_m3 = rbm2mps3(W,b,a);
+D3 = MPS_D(mps_m3);
+fprintf('The bond dimensions of MPS by rbm2mps3 are\n');
+disp(D3);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Canonical mps1 and mps2 and compare them.
 % The redundency of MPS can be removed by Canonicalization,
@@ -73,9 +78,11 @@ disp(D2);
 % See Sec.V Fig.8 
 [ mps1_cano L1 Coef1 ]= MPS_Canonicalize( mps1 );
 [ mps2_cano L2 Coef2 ] = MPS_Canonicalize( mps2 );
+[ mps3_cano L3 Coef3 ] = MPS_Canonicalize( mps_m3 );
 
 ErrCoef = abs(Coef1-Coef2)/Coef2;
 [ ErrL ErrMPS ] = CompareMPS( mps1_cano,L1,mps2_cano,L2);
+[ ErrL3 ErrMPS3 ] = CompareMPS( mps2_cano,L2,mps3_cano,L3);
 fprintf('The difference between MPS by Fig.2 and Fig.4\n');
 fprintf('The difference of the coefficient:\t%g\n',ErrCoef);
 fprintf('The difference of the entanglement spectrum in each bond:\n');

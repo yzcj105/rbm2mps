@@ -3,9 +3,9 @@
 Demo code for [arXiv:1701.04831](http://arxiv.org/abs/1701.04831). You are free to use these codes. Please kindly cite the paper 
 - Jing Chen, Song Cheng, Haidong Xie, Lei Wang, and Tao Xiang, *On the Equivalence of Restricted Boltzmann Machines and Tensor Network States*, [arXiv:1701.04831](http://arxiv.org/abs/1701.04831)
 
-We implement two approaches using Matlab 
+We implement three approaches using Matlab 
 
-* rbm2mps.m: The algorithm of Fig. 2. The MPS bond dimension is $2^n$, where $n$ is the number of cut RBM connections. 
+* rbm2mps1.m: The algorithm of Fig. 2. The MPS bond dimension is $2^n$, where $n$ is the number of cut RBM connections. 
     * Input:	
         * W:   $n_v$ by $n_h$ weight matrix $W$
     	* a:   vector of size $n_v$ for visible units bias 
@@ -22,7 +22,16 @@ We implement two approaches using Matlab
     * Output: 
       * mps: a cell of MPS tensors
 
-The MPS bond dimensions of rbm2mps2.m will be smaller or equal to that of rbm2mps.m.
+* rbm2mps3.m:  The MPS bond dimension is $2^k$, where $k$ is a minimal number of units (no matter visible or hidden) which can break the RBM into a product state if they are fixed. The algorithm copies the $k$ degree of freedoms in the interface region to the virtual bond. 
+    * Input:      
+      * W:  $n_v$ by $n_h$ weight matrix $W$
+      * a:  vector of size $n_v$ for visible units bias 
+      * b:  vector of size $n_h$ for hidden units bias 
+    * Output: 
+      * mps: a cell of MPS tensors
+
+The MPS bond dimensions:
+rbm2mps3.m <= rbm2mps2.m <= rbm2mps.m
 
 ## Auxillary tensor programs ##
 * MPS\_Canonicalize.m: Canonicalize a finite MPS and return the entanglement spectrum of each bond.
@@ -35,4 +44,4 @@ The MPS bond dimensions of rbm2mps2.m will be smaller or equal to that of rbm2mp
 
 
 ## Example ##
-* Example.m: Using the RBM architecure in Fig. 1(a) as an example, we construct the MPS with two approaches. The bond dimensions are consistent with Fig. 2(c) and Fig. 4(c). The two MPS are identical in their canonical form. 
+* Example.m: Using the RBM architecure in Fig. 1(a) as an example, we construct the MPS in three approaches (rbm2mps,rbm2mps2,rbm2mps3). The bond dimensions are consistent with Fig. 2(c) and Fig. 4(c) respectively. The three MPS are identical in their canonical form. 
