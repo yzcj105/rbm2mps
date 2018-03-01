@@ -1,7 +1,7 @@
 # RBM to MPS Translation
 
-Demo code for [arXiv:1701.04831](http://arxiv.org/abs/1701.04831). You are free to use these codes. Please kindly cite the paper 
-- Jing Chen, Song Cheng, Haidong Xie, Lei Wang, and Tao Xiang, *On the Equivalence of Restricted Boltzmann Machines and Tensor Network States*, [arXiv:1701.04831](http://arxiv.org/abs/1701.04831)
+Demo code for [arXiv:1701.04831v1](http://arxiv.org/abs/1701.04831v1). You are free to use these codes. Please kindly cite the paper 
+- Jing Chen, Song Cheng, Haidong Xie, Lei Wang, and Tao Xiang, *Equivalence of restricted Boltzmann machines and tensor network states*, [Phys. Rev. B 97, 085104 (2018)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.97.085104)
 
 We implement three approaches using Matlab 
 
